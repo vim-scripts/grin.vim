@@ -1,0 +1,96 @@
+*grin.txt*   Plugin that integrates grin with Vim
+
+==============================================================================
+Author:  Santiago Suarez Ordoñez <santiycr@gmail.com>         *grin-author*
+Heavily based on:  https://github.com/mileszs/ack.vim
+License: Same terms as Vim itself (see |license|)
+
+==============================================================================
+INTRODUCTION                                                             *grep*
+
+This plugin is a wrapper around Grin (the python version of Ack) and can be used
+as a replacement for grep.  This plugin will allow you to run grin from vim, and
+shows the results in a split window.
+
+:Grin[!] [options] {pattern} [{directory}]                              *:Grin*
+
+    Search recursively in {directory} (which defaults to the current
+    directory) for the {pattern}.  Behaves just like the |:grep| command, but
+    will open the |Quickfix| window for you. If [!] is not given the first
+    error is jumped to.
+
+:GrinAdd [options] {pattern} [{directory}]                           *:GrinAdd*
+
+    Just like |:Grin|, but instead of making a new list, the matches are
+    appended to the current |quickfix| list.
+
+:GrinFromSearch [{directory}]                                 *:GrinFromSearch*
+
+    Just like |:Grin| but the pattern is from previous search.
+
+:LGrin [options] {pattern} [{directory}]                               *:LGrin*
+
+    Just like |:Grin| but instead of the |quickfix| list, matches are placed in
+    the current |location-list|.
+
+:LGrinAdd [options] {pattern} [{directory}]                         *:LGrinAdd*
+
+    Just like |:GrinAdd| but instead of the |quickfix| list, matches are added
+    to the current |location-list|
+
+:GrinFile [options] {pattern} [{directory}]                         *:GrinFile*
+
+    Search recursively in {directory} (which defaults to the current
+    directory) for filenames matching the {pattern}.  Behaves just like the
+    |:grep| command, but will open the |Quickfix| window for you.
+
+:GrinHelp[!] [options] {pattern}                                    *:GrinHelp*
+
+    Search vim documentation files for the {pattern}.  Behaves just like the 
+    |:Grin| command, but searches only vim documentation .txt files
+
+:LGrinHelp [options] {pattern}                                     *:LGrinHelp*
+
+    Just like |:GrinHelp| but instead of the |quickfix| list, matches are placed
+    in the current |location-list|.
+
+Files containing the search term will be listed in the split window, along
+with the line number of the occurrence, once for each occurrence.  <Enter> on
+a line in this window will open the file, and place the cursor on the matching
+line.
+
+See http://betterthangrep.com/ and https://pypi.python.org/pypi/grin for more
+information.
+
+==============================================================================
+MAPPINGS                                                        *Grin-mappings*
+
+The following keyboard shortcuts are available in the quickfix window:
+
+o                   open file (same as enter).
+
+go                  preview file (open but maintain focus on Grin.vim results).
+
+t                   open in a new tab.
+
+T                   open in new tab silently.
+
+h                   open in horizontal split.
+
+H                  open in horizontal split silently.
+
+v                   open in vertical split.
+
+gv                  open in vertical split silently.
+
+q                   close the quickfix window.
+
+
+==============================================================================
+ACKNOWLEDGEMENTS
+
+This plugin is a blatant modification of ack.vim by Antoine Imbert
+(antoine.imbert+ackvim@gmail.com), Miles Sterrett (https://github.com/mileszs)
+and others.
+Checkout their plugin if you're interested in ack instead of grin:
+https://github.com/mileszs/ack.vim

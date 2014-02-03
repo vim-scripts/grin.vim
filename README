@@ -1,0 +1,3 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=4851
+
+This plugin is a front for grin, the python version of Ack. Grin can be used as a replacement for grep, it will allow you to run grin from vim, get the results in a split window and open them right in the editor.
